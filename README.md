@@ -1,4 +1,4 @@
-This website is a simple example  to demonstrate Ted's web development. Tt is still under constructed. 
+This website is a simple example  to demonstrate Ted's web development. It is still under constructed. 
 If you have any advice, please contact me at tedzyy@gmail.com
 
 The skills and tools used in this site include:

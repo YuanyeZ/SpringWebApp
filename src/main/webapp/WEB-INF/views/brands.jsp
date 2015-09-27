@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../../resources/css/carousel.css" rel="stylesheet">
+    <link href="../../resources/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
 <!-- include the navbar -->

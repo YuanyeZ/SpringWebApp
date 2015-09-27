@@ -6,10 +6,22 @@
 
     <div class="container-fluid">
       <div class="row">
+      <br>
         <div class="col-sm-3 col-md-2 sidebar">
+        	<h3> Reviews </h3>
             <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-  				<button type="button" class="btn btn-default">Button</button>
-      			<button type="button" class="btn btn-default">Button</button>
+            	<c:forEach items="${brandsList}" var="brand">
+            		<div class="btn-group">
+  						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3>${brand}</h3> <span class="caret"> </span></button>
+  						<ul class="dropdown-menu">
+  							<c:forEach items="${cameraList}" var="camera">
+	  							<c:if test="${camera.brands.equals(brand)}">
+	  								<li><a href="">${camera.model}</a></li>
+	  							</c:if>
+  							</c:forEach>
+  						</ul>
+      				</div>
+      			</c:forEach>
 			</div>
         </div>
 

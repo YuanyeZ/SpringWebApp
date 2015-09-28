@@ -39,12 +39,13 @@
             <beans:list>
                 <beans:value>com.ted.Model.User</beans:value>
                 <beans:value>com.ted.Model.Camera</beans:value>
+                <beans:value>com.ted.Model.Reviews</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
             <beans:props>
                 <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</beans:prop>
-                <beans:prop key="hibernate.show_sql">true</beans:prop>
+                <beans:prop key="hibernate.show_sql">false</beans:prop>
             </beans:props>
         </beans:property>
     </beans:bean>
@@ -63,6 +64,14 @@
     </beans:bean>
     <beans:bean id="cameraService" class="com.ted.service.CameraServiceImpl">
         <beans:property name="cameraDAO" ref="cameraDAO"></beans:property>
+    </beans:bean>
+    
+    <!-- reviews beans -->
+    <beans:bean id="reviewsDAO" class="com.ted.DAO.ReviewsDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="reviewsService" class="com.ted.service.ReviewsServiceImpl">
+        <beans:property name="reviewsDAO" ref="reviewsDAO"></beans:property>
     </beans:bean>
         
 	<!-- ted: provide the location for finding controller -->

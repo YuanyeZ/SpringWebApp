@@ -1,10 +1,13 @@
 package com.ted.Model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,9 @@ public class Camera {
 	private String brands;
 	@Column(name="MODEL")
 	private String model;
+	@OneToMany(mappedBy="CAMERA")
+	private Set<Reviews> reviewsSet;
+		
 	
 	public int getId() {
 		return id;
@@ -36,6 +42,12 @@ public class Camera {
 	}
 	public void setModel(String model) {
 		this.model = model;
+	}
+	public Set<Reviews> getReviewsSet() {
+		return reviewsSet;
+	}
+	public void setReviewsSet(Set<Reviews> reviewsSet) {
+		this.reviewsSet = reviewsSet;
 	}
 	
 	@Override

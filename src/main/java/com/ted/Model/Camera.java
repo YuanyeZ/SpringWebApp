@@ -21,7 +21,7 @@ public class Camera {
 	private String brands;
 	@Column(name="MODEL")
 	private String model;
-	@OneToMany(mappedBy="CAMERA")
+	@OneToMany(mappedBy="camera")
 	private Set<Reviews> reviewsSet;
 		
 	

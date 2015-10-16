@@ -6,7 +6,7 @@ import com.ted.Model.Reviews;
 
 public interface ReviewsDAO {
 	public void add(Reviews review);
-	public List<Reviews> getAll();
+	public List<Reviews> getAllReviews();
 	
 	public void edit(Reviews review);
 	//public void delete(String cam_mod);

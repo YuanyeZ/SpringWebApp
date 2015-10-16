@@ -26,8 +26,7 @@
 <!-- include the body of the page -->
 <%@ include file="camIndex.jsp" %>
 
-<!-- include the footer -->
-<%@ include file="../../resources/html/footer.html" %>
+
 
 
    <!-- Bootstrap core JavaScript

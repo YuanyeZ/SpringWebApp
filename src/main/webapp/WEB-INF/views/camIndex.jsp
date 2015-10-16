@@ -16,7 +16,7 @@
   						<ul class="dropdown-menu">
   							<c:forEach items="${cameraList}" var="camera">
 	  							<c:if test="${camera.brands.equals(brand)}">
-	  								<li><a href="">${camera.model}</a></li>
+	  								<li><a href="/reviews/${camera.getModel()}">${camera.getModel()}</a></li>
 	  							</c:if>
   							</c:forEach>
   						</ul>
@@ -43,14 +43,13 @@
 
                         <tbody>
                         <c:forEach items="${cameraList}" var="camera">
-                        <c:if test="${camera.brands.equals(brand)}">
-                        <tr>
-                          <td><img src="<c:url value='../../resources/images/CameraModels/${camera.getModel()}.jpg' />" width="50" class="img-responsive" alt="${camera}"></td>
-                          <td>${camera.getModel()}</td>
-                          <td><a href="">Reviews</a></td>
-                        </tr>
-                        </c:if>
-                                   
+                        	<c:if test="${camera.getBrands().equals(brand)}">
+	                        <tr>
+	                          <td><img src="<c:url value='../../resources/images/CameraModels/${camera.getModel()}.jpg' />" width="50" class="img-responsive" alt="${camera}"></td>
+	                          <td>${camera.getModel()}</td>
+	                          <td><a href="/reviews/${camera.getModel()}">Reviews</a></td>
+	                        </tr>
+                        	</c:if>                                   
                         </c:forEach>
                         </tbody>
                     </table>
@@ -61,6 +60,7 @@
           </div>
 
             <hr>
+            
         </div>
       </div>
 

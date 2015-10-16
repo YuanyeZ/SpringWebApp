@@ -20,7 +20,7 @@ public class ReviewsDAOImpl implements ReviewsDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reviews> getAll() {
+	public List<Reviews> getAllReviews() {
 		String hql = "FROM Reviews";
 		return this.sessionFactory.getCurrentSession().createQuery(hql).list();
 	}

@@ -24,7 +24,7 @@ public class ReviewsServiceImpl implements ReviewsService {
 	@Override
 	@Transactional
 	public List<Reviews> getAllReviews() {
-		return this.reviewsDAO.getAll();
+		return this.reviewsDAO.getAllReviews();
 	}
 
 	@Override

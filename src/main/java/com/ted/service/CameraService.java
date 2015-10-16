@@ -9,5 +9,5 @@ public interface CameraService {
 	public void updateCamera(Camera cam);
 	public void deleteCamera(String model);
 	public Camera getCameraByModel(String model);
-	public List<Camera> getAllUsers();
+	public List<Camera> getAllCameras();
 }

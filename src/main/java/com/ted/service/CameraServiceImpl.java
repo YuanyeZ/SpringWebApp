@@ -44,7 +44,7 @@ public class CameraServiceImpl implements CameraService {
 
 	@Override
 	@Transactional
-	public List<Camera> getAllUsers() {
+	public List<Camera> getAllCameras() {
 		return this.cameraDAO.getAllCams();
 	}
 

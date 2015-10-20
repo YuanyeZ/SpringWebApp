@@ -2,8 +2,10 @@ package com.ted.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import com.ted.Model.Camera;
 
@@ -38,7 +40,10 @@ public class CameraDAOImpl implements CameraDAO {
 
 	@Override
 	public Camera getCamByModel(String model) {
-		return (Camera)this.sessionFactory.getCurrentSession().load(Camera.class, new String(model));
+		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Camera.class);
+		criteria.add(Restrictions.like("model", model));
+		return (Camera) criteria.uniqueResult();
+		//return (Camera)this.sessionFactory.getCurrentSession().load(Camera.class, new String(model));
 	}
 
 	@SuppressWarnings("unchecked")

@@ -10,4 +10,5 @@ public interface CameraDAO {
 	public void delete(String model);
 	public Camera getCamByModel(String model);
 	public List<Camera> getAllCams();
+	
 }

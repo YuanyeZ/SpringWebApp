@@ -30,7 +30,7 @@
 
           <div class="row placeholders">
           <c:forEach items="${brandsList}" var="brand">
-            <div class="col-xs-6 col-md-4 placeholder">
+            <div class="col-xs-4 col-md-4 placeholder">
               <img src="<c:url value='../../resources/images/CameraBrands/${brand}.jpg' />" width="200" class="img-responsive" alt="${brand}">
                 <table class="table table-striped">
                         <thead>

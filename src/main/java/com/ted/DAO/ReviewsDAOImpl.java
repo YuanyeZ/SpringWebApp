@@ -22,13 +22,24 @@ public class ReviewsDAOImpl implements ReviewsDAO {
 	@Override
 	public List<Reviews> getAllReviews() {
 		String hql = "FROM Reviews";
-		return this.sessionFactory.getCurrentSession().createQuery(hql).list();
+		return (List<Reviews>) this.sessionFactory.getCurrentSession().
+				//createSQLQuery("SELECT * FROM REVIEWS").list();
+				createQuery(hql).list();
 	}
 
 	@Override
 	public void edit(Reviews review) {
 		this.sessionFactory.getCurrentSession().update(review);
 	}
+
+//	@Override
+//	public List<Reviews> getReviewsByCamera(String model) {
+//		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Reviews.class);
+//		criteria.add(Restrictions.like("camera", model));
+//		@SuppressWarnings("unchecked")
+//		List<Reviews> results = (List<Reviews>)criteria.list();
+//		return results;
+//	}
 
 //	@Override
 //	public void delete(String cam_mod) {

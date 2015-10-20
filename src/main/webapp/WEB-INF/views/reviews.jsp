@@ -9,8 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Camera Reviews</title>
+  	<!-- Bootstrap core CSS -->
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../resources/css/carousel.css" rel="stylesheet">
+    <link href="../../resources/css/dashboard.css" rel="stylesheet">
+    <link href="../../resources/css/blog.css" rel="stylesheet">
 </head>
 <body>
+<!-- include the navbar -->
+<%@ include file="../../resources/html/navbar.html"%>
 
 <div class="container">
 
@@ -25,13 +33,15 @@
 
           <div class="blog-post">
 
-            <h2 class="blog-post-title">Review for ${cameraModel}</h2>
-            <p class="blog-post-meta">January 1, 2014 by <a href="#"></a></p>
+            <h2 class="blog-post-title">Reviews for ${cameraModel}</h2>
+                       
           <c:forEach items="${reviewsList}" var="review">
-            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-            <hr>
-           
-           <pre><code>Example code block</code></pre>
+          	
+          	<p class="blog-post-meta">Author: ${review.getAuthor()}</p>
+          	<p class="blog-post-meta">Poster Time: ${review.getDate()}</p>
+         	
+            <p>${review} </p>
+            <hr>           
             </c:forEach>
           </div><!-- /.blog-post -->
 
@@ -40,13 +50,11 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <img src = #>
+           <img src="<c:url value='../../resources/images/CameraModels/${cameraModel.getModel()}.jpg' />" width="1200" class="img-responsive">
           </div>
           <div class="sidebar-module">
-            <h4>Related</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-            </ol>
+            <h4><a href="/brands">See All Reviews</a></h4>
+           
           </div>
          
         </div><!-- /.blog-sidebar -->
@@ -54,6 +62,17 @@
       </div><!-- /.row -->
 
     </div><!-- /.container -->
+    
+    <!-- include the footer -->
+	<%@ include file="../../resources/html/footer.html" %>
 
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../resources/js/jquery.min.js"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../resources/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

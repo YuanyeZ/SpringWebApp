@@ -39,7 +39,7 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 400px;
+  height: 500px;
   margin-bottom: 10px;
 }
 /* Since positioning the image, we need to help out the caption */
@@ -66,7 +66,7 @@ body {
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
 }
 .marketing h2 {
@@ -82,7 +82,7 @@ body {
 ------------------------- */
 
 .featurette-divider {
-  margin: 10px 0; /* Space out the Bootstrap <hr> more */
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
@@ -129,6 +129,6 @@ body {
 
 @media (min-width: 992px) {
   .featurette-heading {
-    margin-top: 120px;
+    margin-top: 20px;
   }
 }

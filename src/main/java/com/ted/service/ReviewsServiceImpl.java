@@ -23,7 +23,7 @@ public class ReviewsServiceImpl implements ReviewsService {
 
 	@Override
 	@Transactional
-	public List<Reviews> getAllReviews() {
+	public  List<Reviews> getAllReviews() {
 		return this.reviewsDAO.getAllReviews();
 	}
 
@@ -32,5 +32,10 @@ public class ReviewsServiceImpl implements ReviewsService {
 	public void editReview(Reviews review) {
 		this.reviewsDAO.edit(review);
 	}
+
+//	@Override
+//	public List<Reviews> getReviewsByCamera(String model) {
+//		return this.reviewsDAO.getReviewsByCamera(model);
+//	}
 
 }

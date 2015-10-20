@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ted.Model.Camera;
 import com.ted.Model.Reviews;
@@ -88,7 +87,6 @@ public class HomeController {
     public String brands(Locale locale, Model model) {
 		List<Camera> cameraList = this.cameraService.getAllCameras();
 		Set<String> brandsList = new HashSet<String>();
-		List<Reviews> reviewsList = this.reviewsService.getAllReviews();
 		
 		for(Camera cam : cameraList){
 			if(!brandsList.contains(cam.getBrands())){
@@ -98,7 +96,6 @@ public class HomeController {
 		
 		model.addAttribute("cameraList", cameraList);
 		model.addAttribute("brandsList", brandsList);
-		model.addAttribute("reviewsList", reviewsList);
 		
         return "brands";
     }
@@ -106,21 +103,25 @@ public class HomeController {
 	@RequestMapping(value = "/reviews/{cam_mod}", method = RequestMethod.GET)
     public String reviews(@PathVariable("cam_mod") String cam_mod, Model model) {
 		//question here? can not use cameraService.getCameraByModel, expect cam_mod to be integer
-		List<Camera> cameraList = this.cameraService.getAllCameras();
-		Camera cam = null;
-		for(Camera c : cameraList){
-			if(c.getModel().equals(cam_mod))
-				cam = c;
-		}
-//		List<Reviews> reviewsList = new ArrayList<Reviews>();
-//		for(Reviews re : this.reviewsService.getAllReviews()){
-//			if(re.getCamera().getModel().equals(cam_mod)){
-//				reviewsList.add(re);
-//			}
+//		List<Camera> cameraList = this.cameraService.getAllCameras();
+//		Camera cam = null;
+//		for(Camera c : cameraList){
+//			if(c.getModel().equals(cam_mod))
+//				cam = c;
 //		}
+//		
+		Camera cam = this.cameraService.getCameraByModel(cam_mod);
 		
+		
+		List<Reviews> reviewsList = new ArrayList<Reviews>();
+		for(Reviews re : this.reviewsService.getAllReviews()){
+			if(re.getCamera().getModel().equals(cam_mod)){
+				reviewsList.add(re);
+			}
+		}
+		//model.addAttribute("cameraList", cameraList);
 		model.addAttribute("cameraModel", cam);
-		//model.addAttribute("reviewsList", reviewsList);
+		model.addAttribute("reviewsList", reviewsList);
         return "reviews";
     }
     /*******************

@@ -1,5 +1,6 @@
 package com.ted.Model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CAMERA")
-public class Camera {
+public class Camera implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -52,7 +57,7 @@ public class Camera {
 	
 	@Override
 	public String toString(){
-		return this.brands + ":" + this.model;
+		return this.model;
 	}
 	
 	

@@ -15,14 +15,14 @@ public class Reviews {
 	@Id
 	@Column(name="ID")
 	private int ID;
-	@Column(name="Author")
+	@Column(name="AUTHOR")
 	private String author;
 	@Column(name="DATE")
 	private Date date;
 	@Column(name="POST")
 	private String post;
 	@ManyToOne
-	@JoinColumn(name="MODEL")
+	@JoinColumn(name="MODEL", referencedColumnName="MODEL")
 	private Camera camera;
 	
 	public int getID() {
@@ -54,6 +54,10 @@ public class Reviews {
 	}
 	public void setCamera(Camera camera) {
 		this.camera = camera;
+	}
+	@Override
+	public String toString(){
+		return this.post;
 	}
 	
 }
